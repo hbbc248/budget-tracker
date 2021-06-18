@@ -38,6 +38,9 @@ function saveRecord(record) {
 
     // add record to your store with add method
     budgetObjectStore.add(record)
+
+    // Let user know that a offline budget item was summited
+    alert('You summited an offline budget item. Item will be loaded to cloud data base once the device have internet access!');
 };
 
 function uploadBudget() {
@@ -73,8 +76,8 @@ function uploadBudget() {
                     const budgetObjectStore = transaction.objectStore('new_budget');
                     // clear all items in your store
                     budgetObjectStore.clear();
-
-                    alert('All saved budgets has been submitted!');
+                    // let user know that saved items have been summited online
+                    alert('All saved budgets items have been loaded to cloud!');
                 })
                 .catch(err => {
                     console.log(err);
